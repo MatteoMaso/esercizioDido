@@ -2,18 +2,20 @@
 
 This file contains the following function:
 
-def isHoliday(dd: int, mm: int, yy: int)
+```python
+def isHoliday(dd: int, mm: int, yy: int):
+```
 
 that prints Holiday or Work according to the day passed as parameter.
 
 
-## required
+#### required
 
 Python 3
 
-### library
+#### library required
 - vobject
 - datetime
 
-> pip3 install datetime
+> pip3 install datetime      
 > pip3 install vobject
