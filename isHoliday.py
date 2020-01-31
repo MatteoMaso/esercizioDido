@@ -21,14 +21,14 @@ def initHolidays(yy: int):
 
 # Specificare il giorno, mese ed anno in formato numerico
 # return true if is holyday, false otherwise
-def isHoliday(dd: int, mm: int, yy: int):
+def isHoliday(dd: int, mm: int, yy: int, weekendDays=[5,6]):
 
     if  1 <= int(dd) <= 31 and 1 <= int(mm) <= 12 and 1960 <= int(yy) <= 2100:  # params check
         initHolidays(yy)
 
         dayToCheck = datetime.datetime(int(yy), int(mm), int(dd))
 
-        if dayToCheck in holidays[str(yy)] or dayToCheck.weekday() in [5,6]:
+        if dayToCheck in holidays[str(yy)] or dayToCheck.weekday() in weekendDays:
             print("holiday")
         else:
             print("Work")
@@ -36,7 +36,7 @@ def isHoliday(dd: int, mm: int, yy: int):
         print("Error input parameter: "+str(dd)+"-"+str(mm)+"-"+str(yy))
 
 # Test
-isHoliday("01", "01", "22034")
+isHoliday("01", "01", "22034", [5,6])
 isHoliday(2, 1, "2020")
 isHoliday("02", "01", "2020")
 isHoliday("01", "01", "2020")
@@ -44,4 +44,4 @@ isHoliday("01", "01", "2020")
 isHoliday("1", "02", "2020")
 isHoliday("2", "02", "2020")
 isHoliday("3", "02", "2018")
-isHoliday("04", "02", "2020")
+isHoliday("04", "02", "2020", [0,1,2,3,4,5,6])
